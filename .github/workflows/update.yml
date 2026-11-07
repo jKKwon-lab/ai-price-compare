@@ -23,8 +23,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests supabase
 
-    - name: 데이터 수집 파이썬 스크립트 실행 (script 폴더 안의 파일 지정)
+    - name: 데이터 수집 파이썬 스크립트 실행
       env:
         SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
         SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      # ⚡ 작업 폴더 위치를 명확히 지정
       run: python script/sync_models.py
