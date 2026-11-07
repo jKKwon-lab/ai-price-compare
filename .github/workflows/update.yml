@@ -2,13 +2,12 @@ name: Auto Update AI Models Data
 
 on:
   schedule:
-    # 매일 한국 시간 새벽 4시 (UTC 기준 전날 19시)에 자동 실행
     - cron: '0 19 * * *'
-  workflow_dispatch: # GitHub 웹사이트에서 내가 원할 때 수동으로 버튼을 눌러 실행할 수 있게 하는 옵션
+  workflow_dispatch:
 
 jobs:
   update-data:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
     - name: 내 코드 가져오기
@@ -24,9 +23,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests supabase
 
-    - name: 데이터 수집 파이썬 스크립트 실행
+    - name: 데이터 수집 파이썬 스크립트 실행 (script 폴더 안의 파일 지정)
       env:
-        # GitHub Secrets에 등록할 환경변수를 파이썬으로 넘겨줌
         SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
         SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-      run: python sync_models.py
+      run: python script/sync_models.py
