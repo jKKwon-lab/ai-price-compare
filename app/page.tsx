@@ -1,6 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
 import ClientTable from "../components/ClientTable";
 
+// ⚡ Next.js 16 빌드 에러 해결을 위한 설정 추가
+export const instant = false;
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
