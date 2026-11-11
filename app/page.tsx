@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import ClientTable from "@/components/ClientTable";
+import ClientTable from "../components/ClientTable";
 
 export const revalidate = 3600; // 1시간마다 캐시 갱신 (SEO 최적화)
 
