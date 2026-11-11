@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "글로벌 AI 모델 실시간 단가 비교",
   description: "OpenAI, Anthropic, Google 등 전 세계 주요 LLM API의 1M 토큰당 가격과 스펙을 한눈에 비교하세요.",
+  verification: {
+    google: "hSa-YUCM44dTPWSkjgzOVnMkYWbHgeueuB5CCHww91I",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
