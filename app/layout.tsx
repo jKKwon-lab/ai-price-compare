@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -28,6 +29,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
+    </html>
+  );
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="ko">
+      <body>{children}</body>
+      {/* ⚡ 발급받은 G- 코드를 아래에 정확히 넣어주세요 */}
+      <GoogleAnalytics gaId="G-7JZPRCSLCH" /> 
     </html>
   );
 }
